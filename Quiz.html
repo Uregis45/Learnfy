@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnotLearn - Quiz</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    header {
+      background-color: #0f39ac;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    img {
+      width: 85px;   /* ✅ fixed */
+      height: 85px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0f245f;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #0f39ac;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #progress {
+      text-align: center;
+      margin-top: 15px;
+      color: #555;
+    }
+
+    footer {
+      background-color: #0f245f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="KnotLearn Logo">
+  <nav>
+    <ul>
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="subject.html" id="nav-subject">Subjects</a></li>
+      <li><a href="Quiz.html" id="nav-quiz">Quiz</a></li>
+      <li><a href="About.html" id="nav-about">About</a></li>
+      <li><a href="Feedback.html" id="nav-contact">Feedback</a></li>
+     
+    </ul>
+  </nav>
+</header>
+
+<div class="quiz-container">
+  <h1>Quiz</h1>
+
+  <div id="quiz-box"></div>
+
+  <button id="nextBtn" onclick="nextQuiz()">Next Question</button>
+  <div id="progress"></div>
+</div>
+
+<script>
+  const quizzes = [
+   { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Text Machine Language", "Hyperlinks Text Mark Language", "Home Tool Markup Language"], answer: "Hyper Text Markup Language" },
+  { question: "Which tag is used to create a hyperlink?", options: ["<link>", "<a>", "<href>", "<url>"], answer: "<a>" },
+  { question: "Which tag is used to display an image?", options: ["<img>", "<image>", "<src>", "<pic>"], answer: "<img>" },
+  { question: "Which tag is the largest heading?", options: ["<h6>", "<h4>", "<h1>", "<head>"], answer: "<h1>" },
+  { question: "What is the correct HTML tag for a line break?", options: ["<lb>", "<break>", "<br>", "<hr>"], answer: "<br>" },
+  { question: "Which tag contains the main content of a webpage?", options: ["<body>", "<html>", "<head>", "<main>"], answer: "<body>" },
+  { question: "Which attribute is used to give an element a unique name?", options: ["class", "name", "id", "style"], answer: "id" },
+  { question: "Which HTML tag is used for lists?", options: ["<list>", "<ul>", "<li>", "<ol>"], answer: "<ul>" },
+  { question: "Which tag is used to create a table row?", options: ["<td>", "<tr>", "<th>", "<table>"], answer: "<tr>" },
+  { question: "HTML files are saved with which extension?", options: [".css", ".js", ".html", ".php"], answer: ".html" },
+
+  // CSS
+  { question: "What does CSS stand for?", options: ["Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets", "Computer Style Sheets"], answer: "Cascading Style Sheets" },
+  { question: "Which symbol is used for class selectors?", options: [".", "#", "*", "&"], answer: "." },
+  { question: "Which symbol is used for id selectors?", options: ["#", ".", "@", "%"], answer: "#" },
+  { question: "Which property changes text color?", options: ["font-color", "text-color", "color", "background"], answer: "color" },
+  { question: "Which CSS property controls text size?", options: ["text-size", "font-style", "font-size", "size"], answer: "font-size" },
+  { question: "Which value makes an element invisible?", options: ["display:none", "visibility:show", "opacity:1", "color:none"], answer: "display:none" },
+  { question: "Which CSS property adds space inside an element?", options: ["margin", "border", "padding", "spacing"], answer: "padding" },
+  { question: "Which property centers text?", options: ["align", "text-align", "center", "float"], answer: "text-align" },
+  { question: "Which unit is relative to screen size?", options: ["px", "cm", "em", "%"], answer: "%" },
+  { question: "Which CSS makes corners rounded?", options: ["corner-radius", "border-round", "radius", "border-radius"], answer: "border-radius" },
+];
+
+  let currentQuiz = 0;
+  let score = 0;
+
+  function loadQuiz() {
+    const quiz = quizzes[currentQuiz];
+    let html = `<div class="question">${quiz.question}</div>`;
+
+    quiz.options.forEach((option, index) => {
+      html += `
+        <label>
+          <input type="radio" name="answer" value="${index}">
+          ${option}
+        </label>
+      `;
+    });
+
+    document.getElementById("quiz-box").innerHTML = html;
+    document.getElementById("progress").innerText =
+      `Question ${currentQuiz + 1} of ${quizzes.length}`;
+  }
+
+  function nextQuiz() {
+    const selected = document.querySelector('input[name="answer"]:checked');
+
+    if (!selected) {
+      alert("Please select an answer");
+      return;
+    }
+
+    if (Number(selected.value) === quizzes[currentQuiz].answer) {
+      score++;
+    }
+
+    currentQuiz++;
+
+    if (currentQuiz < quizzes.length) {
+      loadQuiz();
+    } else {
+      document.getElementById("quiz-box").innerHTML =
+        `<h2>You scored ${score} out of ${quizzes.length}</h2>`;
+      document.getElementById("progress").innerText = "Quiz Completed 🎉";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+  }
+
+  loadQuiz();
+</script>
+
+<footer>
+  <p>&copy; 2026 KnotLearn. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

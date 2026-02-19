@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learnfy - Subjects</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+  <div><img src="logo.png"></div>
+  <nav>
+    <ul>
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="subject.html" id="nav-subject">Subjects</a></li>
+      <li><a href="Quiz.html" id="nav-quiz">Quiz</a></li>
+      <li><a href="About.html" id="nav-about">About</a></li>
+      <li><a href="Feedback.html" id="nav-contact">Feedback</a></li>
+    </ul>
+  </nav>
+  
+
+</header>
+
+<section class="subjects-list">
+  <h1>All Subjects</h1>
+
+  <div class="subjects-container">
+
+    <div class="subject-card">
+      <h3>Website Development</h3>
+      <button onclick="openPage('website')">Start Learning</button>
+    </div>
+
+    <div class="subject-card">
+      <h3>Game in Vue</h3>
+      <button onclick="openPage('game in vue')">Start Learning</button>
+    </div>
+
+    <div class="subject-card">
+      <h3>JavaScript</h3>
+      <button onclick="openPage('javascript')">Start Learning</button>
+    </div>
+
+    <div class="subject-card">
+      <h3>Version Control</h3>
+      <button onclick="openPage('version control')">Start Learning</button>
+    </div>
+
+    <div class="subject-card">
+      <h3>Graphic Design</h3>
+      <button onclick="openPage('graphic design')">Start Learning</button>
+    </div>
+
+     <div class="subject-card">
+      <h3>UX/UI Design</h3>
+      <button onclick="openPage('ui')">Start Learning</button>
+    </div>
+
+     <div class="subject-card">
+      <h3>Computer Literacy</h3>
+      <button onclick="openPage('computer literacy')">Start Learning</button>
+    </div>
+
+     <div class="subject-card">
+      <h3>Analysis Project requirement</h3>
+      <button onclick="openPage('ANPR')">Start Learning</button>
+    </div>
+
+     <div class="subject-card">
+      <h3>Others</h3>
+      <button onclick="openPage('others')">Start Learning</button>
+    </div>
+
+
+  </div>
+</section>
+
+<script>
+  function openPage(subject) {
+    window.location.href = subject + ".html";
+  }
+</script>
+
+<footer>
+  <p>&copy; 2026 Learnfy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
