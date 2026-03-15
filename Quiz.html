@@ -3,208 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KnotLearn - Quiz</title>
-
+  <title>Learnfy - HTML Quiz</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-    }
-
+    /* Same base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: #f4f6f8; color: #333; line-height: 1.6; }
     header {
-      background-color: #0f39ac;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: #0f39ac; color: white; display: flex; justify-content: space-between;
+      align-items: center; padding: 15px 30px; position: sticky; top: 0; z-index: 100;
     }
-
-    img {
-      width: 85px;   /* ✅ fixed */
-      height: 85px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin-left: 20px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
+    header img { width: 80px; height: 80px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    nav ul li a:hover { color: #ffd700; }
+    main { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #0f245f; text-align: center; margin-bottom: 10px; }
     .quiz-container {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-
-    h1 {
-      text-align: center;
-      color: #0f245f;
-    }
-
     .question {
-      font-weight: bold;
-      margin-bottom: 15px;
+      background: #f0f4ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;
     }
-
-    label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
+    .question p { font-weight: bold; margin-bottom: 10px; }
+    label { display: block; margin: 5px 0 5px 20px; }
     button {
-      margin-top: 20px;
-      padding: 12px;
-      width: 100%;
-      background-color: #0f39ac;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
+      background: #0f39ac; color: white; border: none; padding: 12px 25px; border-radius: 5px;
+      font-size: 1.1rem; cursor: pointer; transition: 0.3s; display: block; margin: 20px auto 0;
     }
-
-    #progress {
-      text-align: center;
-      margin-top: 15px;
-      color: #555;
-    }
-
+    button:hover { background: #0c2c8a; }
     footer {
-      background-color: #0f245f;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+      background-color: #0f245f; color: white; text-align: center; padding: 20px; margin-top: 60px;
     }
-
-    
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-      }
+    details {
+      background: #e9f0ff; padding: 15px; border-radius: 8px; margin-top: 20px;
     }
+    summary { font-weight: bold; cursor: default; color: #0f39ac; }
   </style>
 </head>
-
 <body>
+  <header>
+    <div><img src="logo.png" alt="Learnfy Logo"></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subject.html">Subjects</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <img src="logo.png" alt="KnotLearn Logo">
-  <nav>
-    <ul>
-      <li><a href="index.html" id="nav-home">Home</a></li>
-      <li><a href="subject.html" id="nav-subject">Subjects</a></li>
-      <li><a href="Quiz.html" id="nav-quiz">Quiz</a></li>
-      <li><a href="About.html" id="nav-about">About</a></li>
-      <li><a href="Feedback.html" id="nav-contact">Feedback</a></li>
-     
-    </ul>
-  </nav>
-</header>
+  <main>
+    <h1>🧪 Test Your HTML Knowledge</h1>
+    <p style="text-align:center; margin-bottom:25px;">All questions are about <abbr title="HyperText Markup Language">HTML</abbr> tags.</p>
+    
+    <div class="quiz-container">
+      <form action="#" method="get">
+        <div class="question">
+          <p>1. Which tag is used to define a description list?</p>
+          <label><input type="radio" name="q1" value="ul"> &lt;ul&gt;</label>
+          <label><input type="radio" name="q1" value="ol"> &lt;ol&gt;</label>
+          <label><input type="radio" name="q1" value="dl"> &lt;dl&gt;</label>
+          <label><input type="radio" name="q1" value="li"> &lt;li&gt;</label>
+        </div>
 
-<div class="quiz-container">
-  <h1>Quiz</h1>
+        <div class="question">
+          <p>2. What does <code>&lt;dt&gt;</code> stand for in a description list?</p>
+          <label><input type="radio" name="q2" value="data"> Data Term</label>
+          <label><input type="radio" name="q2" value="definition"> Definition Term</label>
+          <label><input type="radio" name="q2" value="description"> Description Title</label>
+          <label><input type="radio" name="q2" value="detail"> Detail Tag</label>
+        </div>
 
-  <div id="quiz-box"></div>
+        <div class="question">
+          <p>3. Which tag is used to define a hyperlink?</p>
+          <label><input type="radio" name="q3" value="link"> &lt;link&gt;</label>
+          <label><input type="radio" name="q3" value="a"> &lt;a&gt;</label>
+          <label><input type="radio" name="q3" value="href"> &lt;href&gt;</label>
+          <label><input type="radio" name="q3" value="url"> &lt;url&gt;</label>
+        </div>
 
-  <button id="nextBtn" onclick="nextQuiz()">Next Question</button>
-  <div id="progress"></div>
-</div>
+        <button type="submit">Submit Answers</button>
+      </form>
 
-<script>
-  const quizzes = [
-   { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Text Machine Language", "Hyperlinks Text Mark Language", "Home Tool Markup Language"], answer: "Hyper Text Markup Language" },
-  { question: "Which tag is used to create a hyperlink?", options: ["<link>", "<a>", "<href>", "<url>"], answer: "<a>" },
-  { question: "Which tag is used to display an image?", options: ["<img>", "<image>", "<src>", "<pic>"], answer: "<img>" },
-  { question: "Which tag is the largest heading?", options: ["<h6>", "<h4>", "<h1>", "<head>"], answer: "<h1>" },
-  { question: "What is the correct HTML tag for a line break?", options: ["<lb>", "<break>", "<br>", "<hr>"], answer: "<br>" },
-  { question: "Which tag contains the main content of a webpage?", options: ["<body>", "<html>", "<head>", "<main>"], answer: "<body>" },
-  { question: "Which attribute is used to give an element a unique name?", options: ["class", "name", "id", "style"], answer: "id" },
-  { question: "Which HTML tag is used for lists?", options: ["<list>", "<ul>", "<li>", "<ol>"], answer: "<ul>" },
-  { question: "Which tag is used to create a table row?", options: ["<td>", "<tr>", "<th>", "<table>"], answer: "<tr>" },
-  { question: "HTML files are saved with which extension?", options: [".css", ".js", ".html", ".php"], answer: ".html" },
+      <details>
+        <summary>📌 Answer Key (click to reveal)</summary>
+        <p>1. <code>&lt;dl&gt;</code> – Description List.<br>
+        2. Definition Term (though commonly called "term").<br>
+        3. <code>&lt;a&gt;</code> – anchor tag.</p>
+        <p><small>This uses <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> tags.</small></p>
+      </details>
+    </div>
+  </main>
 
-  // CSS
-  { question: "What does CSS stand for?", options: ["Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets", "Computer Style Sheets"], answer: "Cascading Style Sheets" },
-  { question: "Which symbol is used for class selectors?", options: [".", "#", "*", "&"], answer: "." },
-  { question: "Which symbol is used for id selectors?", options: ["#", ".", "@", "%"], answer: "#" },
-  { question: "Which property changes text color?", options: ["font-color", "text-color", "color", "background"], answer: "color" },
-  { question: "Which CSS property controls text size?", options: ["text-size", "font-style", "font-size", "size"], answer: "font-size" },
-  { question: "Which value makes an element invisible?", options: ["display:none", "visibility:show", "opacity:1", "color:none"], answer: "display:none" },
-  { question: "Which CSS property adds space inside an element?", options: ["margin", "border", "padding", "spacing"], answer: "padding" },
-  { question: "Which property centers text?", options: ["align", "text-align", "center", "float"], answer: "text-align" },
-  { question: "Which unit is relative to screen size?", options: ["px", "cm", "em", "%"], answer: "%" },
-  { question: "Which CSS makes corners rounded?", options: ["corner-radius", "border-round", "radius", "border-radius"], answer: "border-radius" },
-];
-
-  let currentQuiz = 0;
-  let score = 0;
-
-  function loadQuiz() {
-    const quiz = quizzes[currentQuiz];
-    let html = `<div class="question">${quiz.question}</div>`;
-
-    quiz.options.forEach((option, index) => {
-      html += `
-        <label>
-          <input type="radio" name="answer" value="${index}">
-          ${option}
-        </label>
-      `;
-    });
-
-    document.getElementById("quiz-box").innerHTML = html;
-    document.getElementById("progress").innerText =
-      `Question ${currentQuiz + 1} of ${quizzes.length}`;
-  }
-
-  function nextQuiz() {
-    const selected = document.querySelector('input[name="answer"]:checked');
-
-    if (!selected) {
-      alert("Please select an answer");
-      return;
-    }
-
-    if (Number(selected.value) === quizzes[currentQuiz].answer) {
-      score++;
-    }
-
-    currentQuiz++;
-
-    if (currentQuiz < quizzes.length) {
-      loadQuiz();
-    } else {
-      document.getElementById("quiz-box").innerHTML =
-        `<h2>You scored ${score} out of ${quizzes.length}</h2>`;
-      document.getElementById("progress").innerText = "Quiz Completed 🎉";
-      document.getElementById("nextBtn").style.display = "none";
-    }
-  }
-
-  loadQuiz();
-</script>
-
-<footer>
-  <p>&copy; 2026 KnotLearn. All rights reserved.</p>
-</footer>
-
+  <footer>
+    <p>&copy; 2026 Learnfy. Keep learning!</p>
+  </footer>
 </body>
 </html>

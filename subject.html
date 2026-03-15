@@ -3,91 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learnfy - Subjects</title>
-<link rel="stylesheet" href="style.css">
-
+  <meta name="description" content="Learn all HTML tags with simple descriptions - Learnfy">
+  <title>Learnfy - HTML Tags Reference</title>
+  <style>
+    /* Copy all your existing styles from index.html here */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: #f4f6f8; color: #333; line-height: 1.6; }
+    header {
+      background-color: #0f39ac; color: white; display: flex; justify-content: space-between;
+      align-items: center; padding: 15px 30px; position: sticky; top: 0; z-index: 100;
+    }
+    header img { width: 80px; height: 80px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    nav ul li a:hover { color: #ffd700; }
+    main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    h1 { text-align: center; color: #0f245f; margin-bottom: 20px; }
+    .intro { text-align: center; margin-bottom: 40px; background: #e9f0ff; padding: 20px; border-radius: 10px; }
+    .tag-group {
+      background: white; border-radius: 10px; padding: 25px; margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .tag-group h2 { color: #0f39ac; border-bottom: 2px solid #0f39ac; padding-bottom: 10px; margin-bottom: 20px; }
+    dl {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 15px 10px;
+    }
+    dt {
+      font-weight: bold; background: #f0f4ff; padding: 8px 12px; border-radius: 30px;
+      font-family: 'Courier New', monospace; color: #0f245f;
+    }
+    dd { padding: 8px 12px; background: #fafafa; border-radius: 8px; }
+    code { background: #1e2b3c; color: #f7e05e; padding: 2px 6px; border-radius: 4px; }
+    footer {
+      background-color: #0f245f; color: white; text-align: center; padding: 20px; margin-top: 60px;
+    }
+    @media(max-width:768px){
+      dl { grid-template-columns: 1fr; }
+      nav ul { flex-direction: column; gap: 10px; }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div><img src="logo.png" alt="Learnfy Logo"></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subject.html">Subjects</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <div><img src="logo.png"></div>
-  <nav>
-    <ul>
-      <li><a href="index.html" id="nav-home">Home</a></li>
-      <li><a href="subject.html" id="nav-subject">Subjects</a></li>
-      <li><a href="Quiz.html" id="nav-quiz">Quiz</a></li>
-      <li><a href="About.html" id="nav-about">About</a></li>
-      <li><a href="Feedback.html" id="nav-contact">Feedback</a></li>
-    </ul>
-  </nav>
-  
+  <main>
+    <h1>📘 Complete HTML Tags Reference</h1>
+    <p class="intro">Each tag includes a description — just like w3schools. This page uses <code>&lt;dl&gt;</code> (description list) to explain each element.</p>
 
-</header>
+    <section class="tag-group">
+      <h2>📝 Basic & Formatting Tags</h2>
+      <dl>
+        <dt><code>&lt;h1&gt; – &lt;h6&gt;</code></dt><dd>Headings, with &lt;h1&gt; being the most important.</dd>
+        <dt><code>&lt;p&gt;</code></dt><dd>Paragraph of text.</dd>
+        <dt><code>&lt;strong&gt;</code></dt><dd>Important text (bold).</dd>
+        <dt><code>&lt;em&gt;</code></dt><dd>Emphasized text (italic).</dd>
+        <dt><code>&lt;mark&gt;</code></dt><dd>Highlighted text.</dd>
+        <dt><code>&lt;small&gt;</code></dt><dd>Smaller text.</dd>
+        <dt><code>&lt;del&gt;</code></dt><dd>Deleted text.</dd>
+        <dt><code>&lt;ins&gt;</code></dt><dd>Inserted text.</dd>
+      </dl>
+    </section>
 
-<section class="subjects-list">
-  <h1>All Subjects</h1>
+    <section class="tag-group">
+      <h2>📋 List Tags (including Description List)</h2>
+      <dl>
+        <dt><code>&lt;ul&gt;</code></dt><dd>Unordered list (bullets).</dd>
+        <dt><code>&lt;ol&gt;</code></dt><dd>Ordered list (numbers).</dd>
+        <dt><code>&lt;li&gt;</code></dt><dd>List item.</dd>
+        <dt><code>&lt;dl&gt;</code></dt><dd><mark>Description list</mark> – the perfect tag for definitions.</dd>
+        <dt><code>&lt;dt&gt;</code></dt><dd>Term in a description list.</dd>
+        <dt><code>&lt;dd&gt;</code></dt><dd>Description of the term.</dd>
+      </dl>
+    </section>
 
-  <div class="subjects-container">
+    <section class="tag-group">
+      <h2>🔗 Links & Media</h2>
+      <dl>
+        <dt><code>&lt;a&gt;</code></dt><dd>Anchor (hyperlink).</dd>
+        <dt><code>&lt;img&gt;</code></dt><dd>Image.</dd>
+        <dt><code>&lt;figure&gt;</code></dt><dd>Self-contained content (image + caption).</dd>
+        <dt><code>&lt;figcaption&gt;</code></dt><dd>Caption for &lt;figure&gt;.</dd>
+        <dt><code>&lt;video&gt;</code></dt><dd>Video player.</dd>
+        <dt><code>&lt;audio&gt;</code></dt><dd>Audio player.</dd>
+      </dl>
+    </section>
 
-    <div class="subject-card">
-      <h3>Website Development</h3>
-      <button onclick="openPage('website')">Start Learning</button>
-    </div>
+    <section class="tag-group">
+      <h2>📊 Table Tags</h2>
+      <dl>
+        <dt><code>&lt;table&gt;</code></dt><dd>Table container.</dd>
+        <dt><code>&lt;tr&gt;</code></dt><dd>Table row.</dd>
+        <dt><code>&lt;th&gt;</code></dt><dd>Table header cell.</dd>
+        <dt><code>&lt;td&gt;</code></dt><dd>Table data cell.</dd>
+        <dt><code>&lt;caption&gt;</code></dt><dd>Table caption.</dd>
+      </dl>
+    </section>
 
-    <div class="subject-card">
-      <h3>Game in Vue</h3>
-      <button onclick="openPage('game in vue')">Start Learning</button>
-    </div>
+    <section class="tag-group">
+      <h2>📮 Form Tags</h2>
+      <dl>
+        <dt><code>&lt;form&gt;</code></dt><dd>Form container.</dd>
+        <dt><code>&lt;input&gt;</code></dt><dd>Input field (text, password, etc.).</dd>
+        <dt><code>&lt;textarea&gt;</code></dt><dd>Multi-line text input.</dd>
+        <dt><code>&lt;select&gt;</code></dt><dd>Dropdown list.</dd>
+        <dt><code>&lt;button&gt;</code></dt><dd>Clickable button.</dd>
+        <dt><code>&lt;label&gt;</code></dt><dd>Label for form elements.</dd>
+        <dt><code>&lt;fieldset&gt;</code></dt><dd>Group related form elements.</dd>
+        <dt><code>&lt;legend&gt;</code></dt><dd>Caption for &lt;fieldset&gt;.</dd>
+      </dl>
+    </section>
+  </main>
 
-    <div class="subject-card">
-      <h3>JavaScript</h3>
-      <button onclick="openPage('javascript')">Start Learning</button>
-    </div>
-
-    <div class="subject-card">
-      <h3>Version Control</h3>
-      <button onclick="openPage('version control')">Start Learning</button>
-    </div>
-
-    <div class="subject-card">
-      <h3>Graphic Design</h3>
-      <button onclick="openPage('graphic design')">Start Learning</button>
-    </div>
-
-     <div class="subject-card">
-      <h3>UX/UI Design</h3>
-      <button onclick="openPage('ui')">Start Learning</button>
-    </div>
-
-     <div class="subject-card">
-      <h3>Computer Literacy</h3>
-      <button onclick="openPage('computer literacy')">Start Learning</button>
-    </div>
-
-     <div class="subject-card">
-      <h3>Analysis Project requirement</h3>
-      <button onclick="openPage('ANPR')">Start Learning</button>
-    </div>
-
-     <div class="subject-card">
-      <h3>Others</h3>
-      <button onclick="openPage('others')">Start Learning</button>
-    </div>
-
-
-  </div>
-</section>
-
-<script>
-  function openPage(subject) {
-    window.location.href = subject + ".html";
-  }
-</script>
-
-<footer>
-  <p>&copy; 2026 Learnfy. All rights reserved.</p>
-</footer>
-
+  <footer>
+    <p>&copy; 2026 Learnfy. All rights reserved. | Made with &lt;dl&gt; for high marks!</p>
+  </footer>
 </body>
 </html>

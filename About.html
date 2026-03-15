@@ -4,56 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learnfy - About Us</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Copy the same base styles from index.html */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: #f4f6f8; color: #333; line-height: 1.6; }
+    header {
+      background-color: #0f39ac; color: white; display: flex; justify-content: space-between;
+      align-items: center; padding: 15px 30px; position: sticky; top: 0; z-index: 100;
+    }
+    header img { width: 80px; height: 80px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    nav ul li a:hover { color: #ffd700; }
+    main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #0f245f; margin-bottom: 30px; text-align: center; }
+    .about-card {
+      background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+    dl {
+      display: grid; grid-template-columns: 1fr 3fr; gap: 15px; margin-top: 20px;
+    }
+    dt { font-weight: bold; color: #0f39ac; }
+    dd { margin-left: 0; }
+    footer {
+      background-color: #0f245f; color: white; text-align: center; padding: 20px; margin-top: 60px;
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div><img src="logo.png" alt="Learnfy Logo"></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subject.html">Subjects</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <div><img src="logo.png"></div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="subject.html">Subjects</a></li>
-      <li><a href="Quiz.html">Quiz</a></li>
-      <li><a href="About.html">About</a></li>
-      <li><a href="Feedback.html">Feedback</a></li>
+  <main>
+    <h1>📖 About Learnfy</h1>
+    <article class="about-card">
+      <h2 style="color:#0f39ac;">Our Mission</h2>
+      <p>Learnfy is a free, simple platform to help students learn web development <mark>step by step</mark>. We focus on <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, and core concepts.</p>
       
-    </ul>
-  </nav>
-  
+      <h3 style="margin-top:25px;">Why we use description lists:</h3>
+      <dl>
+        <dt><code>&lt;dl&gt;</code></dt>
+        <dd>Description List – perfect for defining terms.</dd>
+        <dt><code>&lt;dt&gt;</code></dt>
+        <dd>Term name.</dd>
+        <dt><code>&lt;dd&gt;</code></dt>
+        <dd>Term description.</dd>
+      </dl>
+      
+      <p style="margin-top:20px;">This page also uses <code>&lt;article&gt;</code>, <code>&lt;abbr&gt;</code>, and <code>&lt;mark&gt;</code> tags.</p>
+    </article>
+  </main>
 
-</header>
-
-<section class="about-container">
-  <h1>About Us</h1>
-
-  <p>
-    <strong>Learnfy</strong> is an educational platform created to help students understand difficult topics in a simple and clear way.
-    We believe that learning should not feel confusing or overwhelming.
-    Our goal is to untangle complex ideas and turn them into easy, understandable lessons.
-  </p>
-
-  <p>
-    At Learnfy, we focus on clarity, simplicity, and real understanding.
-    We break down hard concepts into smaller parts, use clear explanations, and present
-    knowledge in a way that makes sense for every learner.
-  </p>
-
-  <p>
-    Learnfy is built for students who want to learn smarter, not harder.
-    Whether you are struggling with a topic or just want to improve your understanding,
-    we are here to support your learning journey.
-  </p>
-
-  <p>
-    Our mission is to make education accessible, engaging, and effective for everyone.
-  </p>
-</section>
-
-<footer>
-  <p>&copy; 2026 Learnfy. All rights reserved.</p>
-</footer>
-
+  <footer>
+    <p>&copy; 2026 Learnfy. Built with semantic HTML.</p>
+  </footer>
 </body>
 </html>

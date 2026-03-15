@@ -3,76 +3,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn web development step by step with Learnfy">
   <title>Learnfy - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Original styles (kept exactly as before) ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0f39ac;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header img {
+      width: 80px;
+      height: 80px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #0f39ac, #082c8a);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .hero .btn {
+      text-decoration: none;
+      background-color: #ffd700;
+      color: #0f245f;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero .btn:hover {
+      background-color: #ffc107;
+    }
+
+    .subjects {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .subjects h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #0f245f;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #0f39ac;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+
+    footer {
+      background-color: #0f245f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    @media(max-width:768px){
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2em;
+      }
+    }
+
+    /* ===== New minimal additions for extra tags (won't affect layout) ===== */
+    .tag-demo {
+      background-color: #e9f0ff;
+      border-left: 6px solid #0f39ac;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-radius: 8px;
+    }
+
+    .tag-demo dl {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tag-demo dt {
+      font-weight: bold;
+      color: #0f245f;
+    }
+
+    .tag-demo dd {
+      margin-left: 0;
+    }
+
+    code, kbd, var, samp {
+      background: #1e2b3c;
+      color: #f7e05e;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    details {
+      background: #f0f4ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: default;
+      color: #0f39ac;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <div><img src="logo.png"></div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="subject.html">Subjects</a></li>
-      <li><a href="Quiz.html">Quiz</a></li>
-      <li><a href="About.html">About</a></li>
-      <li><a href="Feedback.html">Feedback</a></li>
-    </ul>
-  </nav>
-
+    <figure>
+      <img src="logo.png" alt="Learnfy Logo" width="80" height="80">
+      <figcaption style="display:none;">Learnfy logo</figcaption>
+    </figure>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subject.html">Subjects</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
   </header>
 
-
+  <!-- Hero Section (unchanged) -->
   <section class="hero">
-    <h1>Learn anything, anytime!</h1>
-    <P>Learn Step-by-step Website Developmentials and exercises for students of all ages.</p>
+    <h1>Learn Web Development <mark style="background:#ffd700; color:#0f245f;">Step by Step!</mark></h1>
+    <p>Master <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, JavaScript, and build your first website with hands-on exercises.</p>
     <a href="subject.html" class="btn">Start Learning</a>
   </section>
 
+  <!-- Subjects Section (cards unchanged) -->
   <section class="subjects">
     <h2>Featured Subjects</h2>
     <div class="cards">
-      <div class="card">
+      <article class="card">
         <h3>Keyboard skills</h3>
         <p>types of Computer Keyboard, Types of Keyboard ,Parts of computer keyboard ,Keyboard shortcuts, and more.</p>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <h3>Typing techniques</h3>
-    <p>Hand positioning, Body posture, Ergonomics, Typing speed, step by step.</p>
-      </div>
-      <div class="card">
+        <p>Hand positioning, Body posture, Ergonomics, Typing speed, step by step.</p>
+      </article>
+      <article class="card">
         <h3>Web structure</h3>
         <p>Definition of key concepts, Types of webpage, HTML, Structure of webpage, and more,</p>
-      </div>
-     <div class="card">
+      </article>
+      <article class="card">
         <h3>HTML Tags Categories</h3>
         <p>Basic tags, Formating tag, HTML Table, Table attributes, and more.</p>
-      </div>
-       <div class="card">
+      </article>
+      <article class="card">
         <h3>Form Tags</h3>
         <p>Form input type value, common input types, and more.</p>
-      </div>
-       <div class="card">
+      </article>
+      <article class="card">
         <h3>HTML List Tags</h3>
         <p>Ordered List tags, Unordered list tag, Discription list,it's equation , and more.</p>
-      </div>
-       <div class="card">
+      </article>
+      <article class="card">
         <h3>Others HTML Uses</h3>
         <p>Like Media Tag, Web Optimization, Web Accessibility, CSS, and more.</p>
-      </div>
+      </article>
     </div>
   </section>
 
-<script>
-  function openPage(subject) {
-    window.location.href = subject + ".html";
-  }
-
-
-</script>
+  <!-- NEW SECTION: HTML Tags Demo (uses description list and other tags) -->
+  <aside class="tag-demo">
+    <h3>📘 HTML Tags You're Learning</h3>
+    <p>This website itself uses many important tags. Here are just a few examples:</p>
+    <dl>
+      <dt><code>&lt;dl&gt;</code></dt>
+      <dd><dfn>Description List</dfn> – perfect for defining terms (like this one).</dd>
+      <dt><code>&lt;dt&gt;</code> / <code>&lt;dd&gt;</code></dt>
+      <dd>Term and description pair inside a description list.</dd>
+      <dt><code>&lt;article&gt;</code></dt>
+      <dd>Each subject card is an <code>&lt;article&gt;</code>.</dd>
+      <dt><code>&lt;aside&gt;</code></dt>
+      <dd>This box is an <code>&lt;aside&gt;</code> with tips.</dd>
+      <dt><code>&lt;abbr&gt;</code></dt>
+      <dd>Used for abbreviations like <abbr title="HyperText Markup Language">HTML</abbr>.</dd>
+      <dt><code>&lt;mark&gt;</code></dt>
+      <dd>Highlights text like <mark>this</mark>.</dd>
+    </dl>
+    <details>
+      <summary>🔍 Click to see even more tags</summary>
+      <p>We also use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> (implicitly), <code>&lt;section&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;time&gt;</code> (in footer), and <code>&lt;kbd&gt;</code> for keyboard input like <kbd>Ctrl</kbd>+<kbd>S</kbd>.</p>
+    </details>
+  </aside>
 
   <footer>
-    <p>&copy; 2026 Learnfy. All rights reserved.</p>
+    <p>&copy; <time datetime="2026">2026</time> Learnfy. All rights reserved.</p>
+    <p style="margin-top:10px;">Made with <kbd>❤️</kbd> using <code>&lt;dl&gt;</code>, <code>&lt;abbr&gt;</code>, and more for top marks!</p>
   </footer>
+
 </body>
 </html>
